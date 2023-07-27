@@ -21,10 +21,6 @@ export class CrontasksService {
     return number10x.toString(16);
   }
 
-  convertTo10xFrom16x(number16x: string) {
-    return parseInt(number16x, 16);
-  }
-
   async doAPIRequest(blockNumber: number): Promise<TransactionType[]> {
     const block16x = this.convertTo16xFrom10x(blockNumber);
     const baseURL = `https://api.etherscan.io/api?module=proxy&action=eth_getBlockByNumber&tag=0x${block16x}&boolean=true`;

@@ -6,6 +6,7 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CrontasksModule } from './crontasks/crontasks.module';
 import { Transaction } from './dbEntities/Transaction';
+import { BalanceModule } from './balance/balance.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { Transaction } from './dbEntities/Transaction';
       entities: [Transaction],
       synchronize: process.env.NODE_ENV !== 'production',
     }),
+    BalanceModule,
   ],
   controllers: [AppController],
   providers: [AppService],
